@@ -25,6 +25,9 @@
     <string name="btnUpdatePokemon">Update Pokemon</string>
     <string name="changeTypeStr">Change Type</string>
     <string name="welcomeMessage">Welcome Message</string>
+    <string name="pokemonName">PokemonName</string>
+    <string name="pokemonExp">PokemonLevel</string>
+    <string name="caughtPokemon">Caught Pokemon</string>
 
     <string-array name="options_map">
         <item>Route 1</item>

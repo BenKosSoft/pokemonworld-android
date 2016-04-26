@@ -14,7 +14,7 @@
         android:layout_width="@dimen/pname_width"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pokemon Name"
+        android:text="@string/pokemonName"
         android:gravity="center"
         android:id="@+id/tvPokemonName"
         android:textStyle="bold"

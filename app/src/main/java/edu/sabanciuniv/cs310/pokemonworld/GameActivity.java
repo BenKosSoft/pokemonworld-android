@@ -1,10 +1,12 @@
 package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -16,6 +18,7 @@ public class GameActivity extends Activity implements AsyncResponse {
     String usernameStr;
     TextView welcomeMessage;
     String ageStr = null, favPokeStr = null; // get user info...
+    String jsonStringPokemon; // get own pokemon info...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,16 @@ public class GameActivity extends Activity implements AsyncResponse {
         backgroundTask.delegate = this;
         backgroundTask.execute(type, usernameStr);
 
+        //for pokemoninfo
+        String type2 ="ownPokemon";
+        BackgroundTask backgroundTask1 = new BackgroundTask(this);
+        backgroundTask1.delegate = this;
+        backgroundTask1.execute(type2, usernameStr);
+
+        //wait for gathering information
+        final ProgressDialog ringProgressDialog = ProgressDialog.show(GameActivity.this, "Please wait ...", "Gathering Information ...", true);
+        ringProgressDialog.setCancelable(true);
+
         new Thread(new Runnable()
         {
             @Override
@@ -41,18 +54,20 @@ public class GameActivity extends Activity implements AsyncResponse {
             {
                 try
                 {
-                    Thread.sleep(1000);
-                    Intent intent = new Intent(GameActivity.this, ProfileActivity.class);
-                    intent.putExtra("username", usernameStr);
-                    intent.putExtra("age", ageStr);
-                    intent.putExtra("favPoke", favPokeStr);
-                    startActivity(intent);
+                    Thread.sleep(2500);
                 }
                 catch (InterruptedException e)
                 {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                ringProgressDialog.dismiss(); //close the progressDialog
+                Intent intent = new Intent(GameActivity.this, ProfileActivity.class);
+                intent.putExtra("username", usernameStr);
+                intent.putExtra("age", ageStr);
+                intent.putExtra("favPoke", favPokeStr);
+                intent.putExtra("jsonPokemon", jsonStringPokemon);
+                startActivity(intent);
             }
         }).start();
 
@@ -91,6 +106,9 @@ public class GameActivity extends Activity implements AsyncResponse {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+        else if(processNumber.equals("ownPokemon")){
+            jsonStringPokemon = jsonString;
         }
     }
 }

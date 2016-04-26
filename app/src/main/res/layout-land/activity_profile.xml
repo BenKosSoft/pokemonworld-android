@@ -14,10 +14,19 @@
         android:padding="@dimen/activity_horizontal_margin_small"
         >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_small"
+            android:text="@string/caughtPokemon"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            />
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView" />
+            android:id="@+id/listViewOwnPokemon" />
 
     </LinearLayout>
 
