@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:background="@drawable/onepokemon"
+    tools:context="edu.sabanciuniv.cs310.pokemonworld.PokemonActivity">
+
+    <TextView
+        android:layout_width="@dimen/pname_width"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pokemon Name"
+        android:gravity="center"
+        android:id="@+id/tvPokemonName"
+        android:textStyle="bold"
+        android:textSize="@dimen/textsize_big"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="HP"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:id="@+id/titleHP"
+        android:layout_below="@+id/tvPokemonName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/margin_top_small"
+        android:textSize="@dimen/textsize_small"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="ATTACK"
+        android:id="@+id/titleAttack"
+        android:textSize="@dimen/textsize_small"
+        android:layout_below="@+id/titleHP"
+        android:layout_alignLeft="@+id/titleHP"
+        android:layout_alignStart="@+id/titleHP"
+        android:layout_marginTop="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="DEFENCE"
+        android:id="@+id/titleDefence"
+        android:textSize="@dimen/textsize_small"
+        android:layout_below="@+id/titleAttack"
+        android:layout_alignLeft="@+id/titleAttack"
+        android:layout_alignStart="@+id/titleAttack"
+        android:layout_marginTop="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="TYPE"
+        android:id="@+id/titleType"
+        android:textSize="@dimen/textsize_small"
+        android:layout_below="@+id/titleDefence"
+        android:layout_alignLeft="@+id/titleDefence"
+        android:layout_alignStart="@+id/titleDefence"
+        android:layout_marginTop="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_legendary"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="LEGENDARY POKEMON!!!"
+        android:id="@+id/titleLegendary"
+        android:textSize="@dimen/textsize_small"
+        android:layout_below="@+id/titleDefence"
+        android:layout_alignLeft="@+id/titleDefence"
+        android:layout_alignStart="@+id/titleDefence"
+        android:layout_marginTop="@dimen/margin_top_large"/>
+
+    <TextView
+        android:layout_width="@dimen/text_special"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="SPECIAL ATTACK"
+        android:id="@+id/titleSpecialAttack"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleAttack"
+        android:layout_toRightOf="@+id/titleAttack"
+        android:layout_toEndOf="@+id/titleAttack"
+        android:layout_marginLeft="@dimen/margin_top_xlarge"
+        android:layout_marginStart="@dimen/margin_top_xlarge"/>
+
+    <TextView
+        android:layout_width="@dimen/text_special"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="SPECIAL DEFENCE"
+        android:id="@+id/titleSpecialDefence"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleDefence"
+        android:layout_toRightOf="@+id/titleDefence"
+        android:layout_toEndOf="@+id/titleDefence"
+        android:layout_marginLeft="@dimen/margin_top_xlarge"
+        android:layout_marginStart="@dimen/margin_top_xlarge"/>
+
+    <TextView
+        android:layout_width="@dimen/text_special"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="SPEED"
+        android:id="@+id/titleSpeed"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleHP"
+        android:layout_toRightOf="@+id/titleHP"
+        android:layout_toEndOf="@+id/titleHP"
+        android:layout_marginLeft="@dimen/margin_top_xlarge"
+        android:layout_marginStart="@dimen/margin_top_xlarge"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_hp"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleHP"
+        android:layout_toRightOf="@+id/titleHP"
+        android:layout_toEndOf="@+id/titleHP"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_attack"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleAttack"
+        android:layout_toRightOf="@+id/titleAttack"
+        android:layout_toEndOf="@+id/titleAttack"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_defense"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleDefence"
+        android:layout_toRightOf="@+id/titleDefence"
+        android:layout_toEndOf="@+id/titleDefence"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_speed"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleSpeed"
+        android:layout_toRightOf="@+id/titleSpeed"
+        android:layout_toEndOf="@+id/titleSpeed"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_s_attack"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleSpecialAttack"
+        android:layout_toRightOf="@+id/titleSpecialAttack"
+        android:layout_toEndOf="@+id/titleSpecialAttack"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_small"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_s_defense"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleSpecialDefence"
+        android:layout_toRightOf="@+id/titleSpecialDefence"
+        android:layout_toEndOf="@+id/titleSpecialDefence"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_type1"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/titleType"
+        android:layout_toRightOf="@+id/titleType"
+        android:layout_toEndOf="@+id/titleType"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+    <TextView
+        android:layout_width="@dimen/text_width_normal"
+        android:layout_height="@dimen/box_height"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="left"
+        android:text="hp"
+        android:id="@+id/tv_type2"
+        android:textSize="@dimen/textsize_small"
+        android:layout_alignTop="@+id/tv_type1"
+        android:layout_toRightOf="@+id/tv_type1"
+        android:layout_toEndOf="@+id/tv_type1"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"/>
+
+</RelativeLayout>

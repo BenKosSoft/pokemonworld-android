@@ -1,0 +1,21 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin_small">1dp</dimen>
+    <dimen name="activity_horizontal_margin_small">1dp</dimen>
+    <dimen name="pname_width">400dp</dimen>
+    <dimen name="textsize_big">40sp</dimen>
+    <dimen name="textsize_small">20sp</dimen>
+    <dimen name="box_height">33.3dp</dimen>
+    <dimen name="margin_medium">13.3dp</dimen>
+    <dimen name="text_width_normal">93.3dp</dimen>
+    <dimen name="text_width_small">46.7dp</dimen>
+    <dimen name="text_legendary">233.3dp</dimen>
+    <dimen name="text_special">173.3dp</dimen>
+    <dimen name="margin_top_small">32.7dp</dimen>
+    <dimen name="margin_top_large">66.7dp</dimen>
+    <dimen name="margin_top_xlarge">80dp</dimen>
+    <dimen name="poke_mainLogo_width">306.7dp</dimen>
+    <dimen name="poke_mainLogo_height">153.3dp</dimen>
+</resources>

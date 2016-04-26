@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_pokeball_map"
+    tools:context="edu.sabanciuniv.cs310.pokemonworld.MapActivity"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_pallet_town"
+            android:text="@string/pallet_town"
+            android:textStyle="bold"
+            android:background="@drawable/imgpallettown"
+            android:onClick="startBattle" android:tag="@string/pallet_town"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_viridian_city"
+            android:text="@string/viridian_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgviridiancity"
+            android:onClick="startBattle" android:tag="@string/viridian_city"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_pewter_city"
+            android:text="@string/pewter_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgpewtercity"
+            android:onClick="startBattle" android:tag="@string/pewter_city"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_cerulean_city"
+            android:text="@string/cerulean_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgceruleancity"
+            android:onClick="startBattle" android:tag="@string/cerulean_city"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/btn_vermilion_city"
+                android:text="@string/vermilion_city"
+                android:textStyle="bold"
+                android:background="@drawable/imgvermilioncity"
+                android:onClick="startBattle" android:tag="@string/vermilion_city"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            >
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/btn_lavender_town"
+                android:text="@string/lavender_town"
+                android:textStyle="bold"
+                android:background="@drawable/imglavendertown"
+                android:onClick="startBattle" android:tag="@string/lavender_town"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_celadon_city"
+            android:text="@string/celadon_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgceladoncity"
+            android:onClick="startBattle" android:tag="@string/celadon_city"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_fuchsia_city"
+            android:text="@string/fuchsia_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgfuchsiacity"
+            android:onClick="startBattle" android:tag="@string/fuchsia_city"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_saffron_city"
+            android:text="@string/saffron_city"
+            android:textStyle="bold"
+            android:background="@drawable/imgsaffroncity"
+            android:onClick="startBattle" android:tag="@string/saffron_city"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btn_cinnabar_island"
+            android:text="@string/cinnabar_island"
+            android:textStyle="bold"
+            android:background="@drawable/imgcinnabarisland"
+            android:onClick="startBattle" android:tag="@string/cinnabar_island"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

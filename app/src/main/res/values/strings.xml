@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">PokemonWorld</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="registerDone">Gotta Catch em All!</string>
+    <string name="registerInfo">Did you register?</string>
+    <string name="favPokemon">Favourite Pokémon</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="profile">Profile</string>
+    <string name="singlePlayer">Single Player</string>
+    <string name="onlineGame">Online Game</string>
+    <string name="age">Age</string>
+    <string name="pokedex">Pokédex</string>
+    <string name="pallet_town">Pallet Town</string>
+    <string name="viridian_city">Viridian City</string>
+    <string name="pewter_city">Pewter City</string>
+    <string name="cerulean_city">Cerulean City</string>
+    <string name="vermilion_city">Vermilion City</string>
+    <string name="lavender_town">Lavender Town</string>
+    <string name="celadon_city">Celadon City</string>
+    <string name="fuchsia_city">Fuchsia City</string>
+    <string name="saffron_city">Saffron City</string>
+    <string name="cinnabar_island">Cinnabar Island</string>
+    <string name="btnUpdatePokemon">Update Pokemon</string>
+    <string name="changeTypeStr">Change Type</string>
+    <string name="welcomeMessage">Welcome Message</string>
+
+    <string-array name="options_map">
+        <item>Route 1</item>
+        <item>Route 2</item>
+        <item>Route 3</item>
+        <item>Route 4</item>
+        <item>Route 5</item>
+        <item>Route 6</item>
+    </string-array>
+
+</resources>
