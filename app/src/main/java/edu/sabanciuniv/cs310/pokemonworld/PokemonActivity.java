@@ -2,8 +2,10 @@ package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -11,6 +13,8 @@ public class PokemonActivity extends Activity {
 
     TextView attackTv, defenceTv, hpTv, speedTv, legendaryTv, specialAttackTv, specialDefenseTv,
     type1Tv, type2Tv, titleTv;
+
+    ImageView pokeCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,15 @@ public class PokemonActivity extends Activity {
         String legendary = intent.getStringExtra("legendary");
         String type1 = intent.getStringExtra("type1");
         String type2 = intent.getStringExtra("type2");
+
+        StringBuilder uri = new StringBuilder();
+        uri.append("@drawable").append(name.toLowerCase());
+
+        int imageResource = getResources().getIdentifier(uri.toString().trim(),null,getPackageName());
+
+        pokeCard = (ImageView) findViewById(R.id.pokeCard);
+        Drawable res = getResources().getDrawable(imageResource);
+        pokeCard.setImageDrawable(res);
 
         if(legendary.equals("0")) {
             legendaryTv.setVisibility(TextView.GONE);

@@ -20,4 +20,6 @@
     <dimen name="margin_top_xlarge">120dp</dimen>
     <dimen name="poke_mainLogo_width">460dp</dimen>
     <dimen name="poke_mainLogo_height">230dp</dimen>
+    <dimen name="pokeCard_width">260dp</dimen>
+    <dimen name="pokeCard_height">400dp</dimen>
 </resources>

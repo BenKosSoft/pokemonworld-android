@@ -245,4 +245,12 @@
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginStart="@dimen/margin_medium"/>
 
+    <ImageView
+        android:layout_width="@dimen/pokeCard_width"
+        android:layout_height="@dimen/pokeCard_height"
+        android:id="@+id/pokeCard"
+        android:layout_below="@+id/tvPokemonName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
