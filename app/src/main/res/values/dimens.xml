@@ -20,4 +20,5 @@
     <dimen name="poke_mainLogo_height">153.3dp</dimen>
     <dimen name="pokeCard_width">155dp</dimen>
     <dimen name="pokeCard_height">250dp</dimen>
+    <dimen name="vertical_margin_large">40dp</dimen>
 </resources>
