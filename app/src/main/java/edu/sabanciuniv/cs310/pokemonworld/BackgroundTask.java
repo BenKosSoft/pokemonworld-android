@@ -51,6 +51,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             return getUserInfo(params);
         } else if (type.equals("ownPokemon")) {
             return ownPokemon(params);
+        } else  if(type.equals("changeFirstPokemon")){
+            return changeFirstPokemon(params);
         } else {
             return null;
         }
@@ -73,6 +75,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             delegate.processFinish("getUserInfo", result);
         } else if(type_main.equals("ownPokemon")){
             delegate.processFinish("ownPokemon", result);
+        } else  if(type_main.equals("changeFirstPokemon")) {
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -258,6 +262,48 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             inputStream.close();
             connection.disconnect();
             return stringBuilder.toString().trim();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    private String changeFirstPokemon(String ... params) {
+
+        String created = params[1];
+        String deleted = params[2];
+
+        String json_url = "http://mertkoo.com/PokemonWorld/change_pokemon.php";
+
+        try {
+            URL url = new URL(json_url);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            OutputStream outputStream = connection.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+            String post_data = URLEncoder.encode("created", "UTF-8") + "=" + URLEncoder.encode(created, "UTF-8") + "&" +
+                    URLEncoder.encode("deleted", "UTF-8") + "=" + URLEncoder.encode(deleted, "UTF-8");
+            bufferedWriter.write(post_data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStream.close();
+
+            InputStream inputStream = connection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+            String result = "";
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                result += line;
+            }
+            bufferedReader.close();
+            inputStream.close();
+            connection.disconnect();
+            return result;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
