@@ -5,16 +5,54 @@ package edu.sabanciuniv.cs310.pokemonworld;
  */
 public class Pokemon {
 
+    private Integer pid;
     private String name;
     private Integer level;
     private Integer exp;
     private String exist;
+    private String move;
+    private String moveType;
 
-    public Pokemon(String name, Integer exp, String exist){
+    public Pokemon(Integer pid, String name, Integer exp, String exist, String move, String moveType){
+        this.pid = pid;
         this.name = name;
         this.exp = exp;
+        this.move = move;
+        this.moveType = moveType;
         this.level = exp / 100;
         this.exist = exist;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
+    public String getExist() {
+        return exist;
+    }
+
+    public void setExist(String exist) {
+        this.exist = exist;
+    }
+
+    public String getMove() {
+        return move;
+    }
+
+    public void setMove(String move) {
+        this.move = move;
+    }
+
+    public String getMoveType() {
+        return moveType;
+    }
+
+    public void setMoveType(String moveType) {
+        this.moveType = moveType;
     }
 
     public String getName() {
@@ -41,11 +79,4 @@ public class Pokemon {
         this.exp = exp;
     }
 
-    public String isOwn() {
-        return exist;
-    }
-
-    public void setOwn(String exist) {
-        this.exist = exist;
-    }
 }

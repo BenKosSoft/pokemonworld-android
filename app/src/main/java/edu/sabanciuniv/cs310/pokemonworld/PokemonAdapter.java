@@ -44,6 +44,7 @@ public class PokemonAdapter extends ArrayAdapter{
             LayoutInflater layoutInflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = layoutInflater.inflate(R.layout.pokemon_listview,parent,false);
             pokemonHolder = new PokemonHolder();
+            pokemonHolder.tx_id = (TextView) row.findViewById(R.id.ownPokemonID);
             pokemonHolder.tx_name = (TextView) row.findViewById(R.id.ownPokemonNameTextView);
             pokemonHolder.tx_level = (TextView) row.findViewById(R.id.ownPokemonLevelTextView);
             row.setTag(pokemonHolder);
@@ -57,11 +58,15 @@ public class PokemonAdapter extends ArrayAdapter{
         stringBuilder.append("lvl-");
         stringBuilder.append(pokemon.getLevel().toString());
         pokemonHolder.tx_level.setText(stringBuilder.toString().trim());
+        StringBuilder stringBuilder1 = new StringBuilder();
+        stringBuilder1.append(pokemon.getPid().toString());
+        stringBuilder1.append("-");
+        pokemonHolder.tx_id.setText(stringBuilder1.toString().trim());
         return row;
     }
 
     static class PokemonHolder{
-        TextView tx_name, tx_level;
+        TextView tx_name, tx_level, tx_id;
     }
 
 }

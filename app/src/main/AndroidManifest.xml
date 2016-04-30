@@ -19,13 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".GameActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".PokedexActivity" />
-        <activity android:name=".PokemonActivity" />
-        <activity android:name=".BattleActivity"></activity>
+        <activity android:name=".RegisterActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".GameActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".ProfileActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".MapActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".PokedexActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".PokemonActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".BattleActivity" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
