@@ -6,7 +6,7 @@
     <dimen name="activity_horizontal_margin_small">1dp</dimen>
     <dimen name="pname_width">400dp</dimen>
     <dimen name="textsize_big">40sp</dimen>
-    <dimen name="textsize_small">20sp</dimen>
+    <dimen name="textsize_medium">20sp</dimen>
     <dimen name="box_height">33.3dp</dimen>
     <dimen name="margin_medium">13.3dp</dimen>
     <dimen name="text_width_normal">93.3dp</dimen>
@@ -21,4 +21,27 @@
     <dimen name="pokeCard_width">155dp</dimen>
     <dimen name="pokeCard_height">250dp</dimen>
     <dimen name="vertical_margin_large">40dp</dimen>
+    <dimen name="battle_btn_width">133.3dp</dimen>
+    <dimen name="battle_btn_height">42dp</dimen>
+    <dimen name="battle_card_width">93.3dp</dimen>
+    <dimen name="battle_card_height">131.3dp</dimen>
+    <dimen name="battle_pname_width">133.3dp</dimen>
+    <dimen name="battle_pname_height">33.3dp</dimen>
+    <dimen name="battle_pname_txtsize">13.3sp</dimen>
+    <dimen name="battle_lvl_width">66.7dp</dimen>
+    <dimen name="battle_lvl_height">26.7dp</dimen>
+    <dimen name="battle_hp_width">86.7dp</dimen>
+    <dimen name="battle_hp_height">20dp</dimen>
+    <dimen name="battle_hp_txtsize">10sp</dimen>
+    <dimen name="battle_margin_size1">96dp</dimen>
+    <dimen name="battle_margin_size2">90dp</dimen>
+    <dimen name="battle_margin_size3">83.3dp</dimen>
+    <dimen name="battle_margin_size4">50dp</dimen>
+    <dimen name="battle_margin_size5">43.3dp</dimen>
+    <dimen name="battle_margin_size6">23dp</dimen>
+    <dimen name="battle_margin_size7">23.3dp</dimen>
+    <dimen name="battle_margin_size8">22dp</dimen>
+    <dimen name="battle_margin_size9">33dp</dimen>
+    <dimen name="battle_margin_size10">13.3dp</dimen>
+    <dimen name="battle_margin_size11">3.3dp</dimen>
 </resources>

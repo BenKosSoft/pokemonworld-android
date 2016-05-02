@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="PID"
         android:id="@+id/ownPokemonID"
-        android:textSize="@dimen/textsize_small"
+        android:textSize="@dimen/textsize_medium"
 
         />
 
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/pokemonName"
         android:id="@+id/ownPokemonNameTextView"
-        android:textSize="@dimen/textsize_small"
+        android:textSize="@dimen/textsize_medium"
         android:layout_toRightOf="@+id/ownPokemonID"
         android:layout_toEndOf="@+id/ownPokemonID"
         android:layout_marginLeft="10dp"
@@ -30,7 +30,7 @@
         android:text="@string/pokemonExp"
         android:id="@+id/ownPokemonLevelTextView"
         android:layout_marginLeft="10dp"
-        android:textSize="@dimen/textsize_small"
+        android:textSize="@dimen/textsize_medium"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ownPokemonNameTextView"
         android:layout_toEndOf="@+id/ownPokemonNameTextView" />

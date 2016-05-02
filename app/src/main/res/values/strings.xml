@@ -28,6 +28,10 @@
     <string name="pokemonName">PokemonName</string>
     <string name="pokemonExp">PokemonLevel</string>
     <string name="caughtPokemon">Caught Pokemon</string>
+    <string name="btn_catch_txt">CATCH</string>
+    <string name="btn_run_txt">RUN</string>
+    <string name="btn_fight_txt">FIGHT</string>
+    <string name="btn_pokemon_txt">POKEMON</string>
 
     <string-array name="options_map">
         <item>Route 1</item>
