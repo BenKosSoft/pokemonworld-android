@@ -2,6 +2,7 @@ package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class MainActivity extends Activity implements AsyncResponse {
 
     EditText username, password;
     String username_str, password_str;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,10 @@ public class MainActivity extends Activity implements AsyncResponse {
 
         username = (EditText) findViewById(R.id.etUsername);
         password = (EditText) findViewById(R.id.etPassword);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.pokemon_theme);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
 
     }
 
