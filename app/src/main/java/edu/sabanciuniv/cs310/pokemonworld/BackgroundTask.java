@@ -51,8 +51,10 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             return getUserInfo(params);
         } else if (type.equals("ownPokemon")) {
             return ownPokemon(params);
-        } else  if(type.equals("changeFirstPokemon")){
+        } else if(type.equals("changeFirstPokemon")){
             return changeFirstPokemon(params);
+        } else if(type.equals("changePokemonType")) {
+            return changePokemonType(params);
         } else {
             return null;
         }
@@ -75,7 +77,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             delegate.processFinish("getUserInfo", result);
         } else if(type_main.equals("ownPokemon")){
             delegate.processFinish("ownPokemon", result);
-        } else  if(type_main.equals("changeFirstPokemon")) {
+        } else if(type_main.equals("changeFirstPokemon")) {
+            Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
+        } else if(type_main.equals("changePokemonType")){
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         }
     }
@@ -125,6 +129,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             String password = params[2];
             String age = params[3];
             String favPoke = params[4];
+            String pokemonFirst = params[5];
+            String pokemonSecond = params[6];
+
             URL url = new URL(register_url);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -135,7 +142,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             String post_data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8") + "&" +
                     URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8") + "&" +
                     URLEncoder.encode("age", "UTF-8") + "=" + URLEncoder.encode(age, "UTF-8") + "&" +
-                    URLEncoder.encode("fav_poke", "UTF-8") + "=" + URLEncoder.encode(favPoke, "UTF-8");
+                    URLEncoder.encode("fav_poke", "UTF-8") + "=" + URLEncoder.encode(favPoke, "UTF-8") + "&" +
+                    URLEncoder.encode("pokemonFirst", "UTF-8") + "=" + URLEncoder.encode(pokemonFirst, "UTF-8") + "&" +
+                    URLEncoder.encode("pokemonSecond", "UTF-8") + "=" + URLEncoder.encode(pokemonSecond, "UTF-8");
             bufferedWriter.write(post_data);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -310,6 +319,49 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         }
         return null;
+    }
 
+    private String changePokemonType(String ... params){
+        String pokemonId = params[1];
+        String pokemonType = params[2];
+        String pokemonTypeAtt = params[3];
+
+        String json_url = "http://mertkoo.com/PokemonWorld/change_pokemon_type.php";
+
+        try {
+            URL url = new URL(json_url);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            OutputStream outputStream = connection.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+            String post_data = URLEncoder.encode("pokemonId", "UTF-8") + "=" + URLEncoder.encode(pokemonId, "UTF-8") + "&" +
+                    URLEncoder.encode("pokemonType", "UTF-8") + "=" + URLEncoder.encode(pokemonType, "UTF-8") + "&" +
+                    URLEncoder.encode("pokemonTypeAtt", "UTF-8") + "=" + URLEncoder.encode(pokemonTypeAtt, "UTF-8");
+            bufferedWriter.write(post_data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStream.close();
+
+            InputStream inputStream = connection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+            String result = "";
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                result += line;
+            }
+            bufferedReader.close();
+            inputStream.close();
+            connection.disconnect();
+            return result;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
     }
 }

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,7 +82,7 @@ public class GameActivity extends Activity implements AsyncResponse {
     }
 
     public void goOnline(View view){
-
+        Toast.makeText(this, "COMING SOON!", Toast.LENGTH_SHORT).show();
     }
 
     public void goPokedex(View view){
