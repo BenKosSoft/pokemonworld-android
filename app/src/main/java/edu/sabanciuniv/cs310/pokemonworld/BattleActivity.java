@@ -99,8 +99,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
             }
 
             battle_pname.setText(pokemons[0].getName());
-            battle_plvl.setText(pokemons[0].getLevel().toString());
-            battle_pHP.setText(pokemons[0].getHp().toString());
+            battle_plvl.setText(pokemons[0].getLevel().toString() + " Level");
+            battle_pHP.setText(pokemons[0].getHp().toString() + " HP");
 
             StringBuilder cardName = new StringBuilder();
             cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
@@ -112,14 +112,29 @@ public class BattleActivity extends Activity implements AsyncResponse{
 
     public void onRun (View v){
 
+        int [] random = randomEnemy(10,20);
+
+        Integer pokemonId = random[0];
+        Integer pokemonLevel = random[1];
+        Integer hp = new Random().nextInt(50-20+1) + 20;
+
+        String pokemonName = pokedex[pokemonId];
+
+        battle_e_pname.setText(pokemonName);
+        battle_e_plvl.setText(pokemonLevel.toString() + " Level");
+        battle_e_pHP.setText(hp.toString() + " HP");
+
+        StringBuilder cardName = new StringBuilder();
+        cardName.append("card_").append(pokemonName.toLowerCase().trim());
+        enemy_card.setImageResource(getResources().getIdentifier(cardName.toString(),"drawable", getPackageName()));
     }
 
     public void onPokemon (View v){
         switch (current){
             case 0:
                 battle_pname.setText(pokemons[1].getName());
-                battle_plvl.setText(pokemons[1].getLevel().toString());
-                battle_pHP.setText(pokemons[1].getHp().toString());
+                battle_plvl.setText(pokemons[1].getLevel().toString() + " Level");
+                battle_pHP.setText(pokemons[1].getHp().toString() + " HP");
 
                 StringBuilder cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
@@ -128,8 +143,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 break;
             case 1:
                 battle_pname.setText(pokemons[0].getName());
-                battle_plvl.setText(pokemons[0].getLevel().toString());
-                battle_pHP.setText(pokemons[0].getHp().toString());
+                battle_plvl.setText(pokemons[0].getLevel().toString() + " Level");
+                battle_pHP.setText(pokemons[0].getHp().toString() + " HP");
 
                 cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
