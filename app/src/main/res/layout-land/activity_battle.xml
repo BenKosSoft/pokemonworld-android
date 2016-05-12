@@ -25,6 +25,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/btn_catch"
+        android:onClick="onCatch"
         android:text="@string/btn_catch_txt"
         android:textSize="@dimen/textsize_medium"/>
 
@@ -35,6 +36,7 @@
         android:layout_below="@+id/btn_fight"
         android:layout_toLeftOf="@+id/btn_catch"
         android:layout_toStartOf="@+id/btn_catch"
+        android:onClick="onPokemon"
         android:text="@string/btn_pokemon_txt"
         android:textSize="@dimen/textsize_medium"/>
 
@@ -45,6 +47,7 @@
         android:layout_alignTop="@id/btn_pokemon"
         android:layout_toRightOf="@+id/btn_pokemon"
         android:layout_toEndOf="@+id/btn_pokemon"
+        android:onClick="onRun"
         android:text="@string/btn_run_txt"
         android:textSize="@dimen/textsize_medium"/>
 
@@ -55,6 +58,7 @@
         android:layout_alignTop="@+id/btn_catch"
         android:layout_toLeftOf="@+id/btn_catch"
         android:layout_toStartOf="@+id/btn_catch"
+        android:onClick="onFight"
         android:text="@string/btn_fight_txt"
         android:textSize="@dimen/textsize_medium"/>
 

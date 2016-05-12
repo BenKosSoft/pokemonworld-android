@@ -9,6 +9,7 @@ public class Pokemon {
     private String name;
     private Integer level;
     private Integer exp;
+    private Integer hp;
     private String exist;
     private String move;
     private String moveType;
@@ -77,6 +78,14 @@ public class Pokemon {
 
     public void setExp(Integer exp) {
         this.exp = exp;
+    }
+
+    public Integer getHp() {
+        return hp;
+    }
+
+    public void setHp(Integer hp) {
+        this.hp = hp;
     }
 
 }
