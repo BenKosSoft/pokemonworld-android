@@ -118,8 +118,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
         switch (current){
             case 0:
                 battle_pname.setText(pokemons[1].getName());
-                battle_plvl.setText(pokemons[1].getLevel());
-                battle_pHP.setText(pokemons[1].getHp());
+                battle_plvl.setText(pokemons[1].getLevel().toString());
+                battle_pHP.setText(pokemons[1].getHp().toString());
 
                 StringBuilder cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
@@ -127,8 +127,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 break;
             case 1:
                 battle_pname.setText(pokemons[0].getName());
-                battle_plvl.setText(pokemons[0].getLevel());
-                battle_pHP.setText(pokemons[0].getHp());
+                battle_plvl.setText(pokemons[0].getLevel().toString());
+                battle_pHP.setText(pokemons[0].getHp().toString());
 
                 cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
