@@ -43,6 +43,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
     Pokemon[] pokemons = new Pokemon[2];
     int current = 0;
 
+    Integer levelFirst, levelSecond;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,9 @@ public class BattleActivity extends Activity implements AsyncResponse{
         battle_e_pname.setText("");
         battle_e_pHP.setText("");
         enemy_card.setImageResource(R.drawable.card_backface);
+
+        levelFirst = Integer.parseInt(getIntent().getStringExtra("levelFirst"));
+        levelSecond = Integer.parseInt(getIntent().getStringExtra("levelSecond"));
 
         userName = getIntent().getStringExtra("userId");
         backgroundTask = new BackgroundTask(BattleActivity.this);
@@ -112,7 +117,7 @@ public class BattleActivity extends Activity implements AsyncResponse{
 
     public void onRun (View v){
 
-        int [] random = randomEnemy(10,20);
+        int [] random = randomEnemy(levelFirst,levelSecond);
 
         Integer pokemonId = random[0];
         Integer pokemonLevel = random[1];

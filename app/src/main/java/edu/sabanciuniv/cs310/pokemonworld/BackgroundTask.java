@@ -378,7 +378,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
     private String findRangeRegion(String[] params) {
 
         String regionName = params[1];
-        String json_url = "http://mertkoo.com/PokemonWorld/find_range_region.php";
+        String json_url = "http://mertkoo.com/PokemonWorld/region.php";
 
         try {
             URL url = new URL(json_url);
