@@ -73,14 +73,14 @@ public class BattleActivity extends Activity implements AsyncResponse{
         battle_pname.setText(userName);
         backgroundTask = new BackgroundTask(BattleActivity.this);
         backgroundTask.delegate = this;
-        backgroundTask.execute("ownPokemon", userName);
+        backgroundTask.execute("ownPokePocket", userName);
     }
 
     @Override
     public void processFinish(String processNumber, String output) {
         JSONObject jsonObject;
         try {
-            jsonObject = new JSONObject(processNumber);
+            jsonObject = new JSONObject(output);
             JSONArray jsonArray = jsonObject.getJSONArray("server_response");
             int count = 0;
             String pid, pXp, pName, exists, move, moveType, hp;
@@ -89,18 +89,19 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 pid = object.getString("pid");
                 pXp = object.getString("exp");
                 pName = object.getString("pokemonName");
-                exists = object.getString("exists");
+                exists = object.getString("exist");
                 move = object.getString("move");
                 moveType = object.getString("move_type");
                 hp = object.getString("hp");
 
                 pokemons[count] = new Pokemon(Integer.parseInt(pid), pName, Integer.parseInt(pXp), exists, move, moveType);
                 pokemons[count].setHp(Integer.parseInt(hp));
+                count++;
             }
 
             battle_pname.setText(pokemons[0].getName());
-            battle_plvl.setText(pokemons[0].getLevel());
-            battle_pHP.setText(pokemons[0].getHp());
+            battle_plvl.setText(pokemons[0].getLevel().toString());
+            battle_pHP.setText(pokemons[0].getHp().toString());
 
             StringBuilder cardName = new StringBuilder();
             cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
