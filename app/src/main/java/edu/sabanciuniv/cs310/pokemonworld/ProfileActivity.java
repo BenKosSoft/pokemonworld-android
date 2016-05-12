@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,6 +32,11 @@ public class ProfileActivity extends Activity {
     String json_string;
     RadioButton child[] = new RadioButton[3];
 
+    String [] moves = {"Normal Special", "Normal Physical", "Fire Special", "Fire Physical", "Water Special", "Water Physical", "Electric Special",
+            "Electric Physical", "Grass Special", "Grass Physical", "Ice Special", "Ice Physical", "Fighting Special", "Fighting Physical",
+            "Poison Special", "Poison Physical", "Ground Special", "Ground Physical", "Flying Special", "Flying Physical", "Psychic Special",
+            "Psychic Physical", "Bug Special", "Bug Physical", "Rock Special", "Rock Physical", "Ghost Special", "Ghost Physical", "Dragon Special",
+            "Dragon Physical", "Dark Special", "Dark Physical", "Steel Special", "Steel Physical", "Fairy Special", "Fairy Physical"};
 
     ListView listViewOwnPokemon;
     ListView listViewOwnPokemon2;
@@ -147,13 +153,47 @@ public class ProfileActivity extends Activity {
 
                     finish();
                 }else{
-                    Toast.makeText(ProfileActivity.this, "Please select one of radio button", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "Please select one of pokemon (radio button)", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     public void updatePokemonType(View view){
+
+        listViewOwnPokemon2 = (ListView) findViewById(R.id.listViewOwnPokemon2);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, moves);
+        listViewOwnPokemon2.setAdapter(adapter);
+
+        String message = "Select pokemon and type to change move of your pokemon!";
+        Toast.makeText(ProfileActivity.this, message,Toast.LENGTH_SHORT).show();
+
+        listViewOwnPokemon2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String moveName = (String) listViewOwnPokemon2.getItemAtPosition(position);
+                int index = moveName.indexOf(" ");
+                Integer pid = null;
+                String moveType = moveName.substring(0,index);
+                String moveTypeAtt = moveName.substring(index+1);
+                StringBuilder builder = new StringBuilder();
+                builder.append(moveTypeAtt).append(" ").append("Attack");
+                moveTypeAtt = builder.toString().trim();
+
+                if(child[1].isChecked() || child[2].isChecked()){
+                    if(child[1].isChecked()) pid = ownPokemonList.get(0).getPid();
+                    else if(child[2].isChecked()) pid = ownPokemonList.get(1).getPid();
+
+                    String type = "changePokemonType";
+                    BackgroundTask backgroundTask = new BackgroundTask(ProfileActivity.this);
+                    backgroundTask.execute(type, pid.toString(), moveType, moveTypeAtt);
+
+                    finish();
+                }else{
+                    Toast.makeText(ProfileActivity.this, "Please select one of pokemon (radio button)", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

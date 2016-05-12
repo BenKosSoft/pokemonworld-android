@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinnerFirst">
+        <item>Charmander</item>
+        <item>Squirtle</item>
+        <item>Bulbasaur</item>
+    </string-array>
+
+    <string-array name="spinnerSecond">
+        <item>Pikachu</item>
+        <item>Caterpie</item>
+        <item>Pidgey</item>
+    </string-array>
+
+
+</resources>
