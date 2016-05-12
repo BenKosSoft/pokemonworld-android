@@ -28,50 +28,17 @@ public class GameActivity extends Activity implements AsyncResponse {
 
         welcomeMessage = (TextView) findViewById(R.id.tvWelcome);
         usernameStr = getIntent().getStringExtra("userId");
-        welcomeMessage.setText("Welcome " + usernameStr + " !!");
+        String welcomeMessageStr = new StringBuilder().append("Welcome ").append(usernameStr).append(" !" ).toString().trim();
+        welcomeMessage.setText(welcomeMessageStr);
     }
 
     public void goProfile(View view){
-        //for user info
-        String type = "getUserInfo";
-        BackgroundTask backgroundTask = new BackgroundTask(this);
-        backgroundTask.delegate = this;
-        backgroundTask.execute(type, usernameStr);
 
-        //for pokemoninfo
+        //for pokemoninfo and userinfo
         String type2 ="ownPokemon";
         BackgroundTask backgroundTask1 = new BackgroundTask(this);
         backgroundTask1.delegate = this;
         backgroundTask1.execute(type2, usernameStr);
-
-        //wait for gathering information
-        final ProgressDialog ringProgressDialog = ProgressDialog.show(GameActivity.this, "Please wait ...", "Gathering Information ...", true);
-        ringProgressDialog.setCancelable(true);
-
-        new Thread(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                try
-                {
-                    Thread.sleep(2500);
-                }
-                catch (InterruptedException e)
-                {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                ringProgressDialog.dismiss(); //close the progressDialog
-                Intent intent = new Intent(GameActivity.this, ProfileActivity.class);
-                intent.putExtra("username", usernameStr);
-                intent.putExtra("age", ageStr);
-                intent.putExtra("favPoke", favPokeStr);
-                intent.putExtra("jsonPokemon", jsonStringPokemon);
-                startActivity(intent);
-            }
-        }).start();
-
 
     }
 
@@ -92,24 +59,27 @@ public class GameActivity extends Activity implements AsyncResponse {
 
     @Override
     public void processFinish(String processNumber, String jsonString) {
-        if(processNumber.equals("getUserInfo")){
-            JSONObject jsonObject;
-            try {
-                jsonObject = new JSONObject(jsonString);
-                JSONArray jsonArray = jsonObject.getJSONArray("server_response");
-                int count = 0;
-                while (count < jsonArray.length()){
-                    JSONObject JO = jsonArray.getJSONObject(count);
-                    ageStr = JO.getString("age");
-                    favPokeStr = JO.getString("fav_poke");
-                    count++;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        jsonStringPokemon = jsonString;
+        JSONObject jsonObject;
+
+        try {
+            jsonObject = new JSONObject(jsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+            int count = 0;
+
+            JSONObject JO = jsonArray.getJSONObject(count);
+            ageStr = JO.getString("age");
+            favPokeStr = JO.getString("fav_poke");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        else if(processNumber.equals("ownPokemon")){
-            jsonStringPokemon = jsonString;
-        }
+
+        Intent intent = new Intent(GameActivity.this, ProfileActivity.class);
+        intent.putExtra("username", usernameStr);
+        intent.putExtra("age", ageStr);
+        intent.putExtra("favPoke", favPokeStr);
+        intent.putExtra("jsonPokemon", jsonStringPokemon);
+        startActivity(intent);
     }
+
 }

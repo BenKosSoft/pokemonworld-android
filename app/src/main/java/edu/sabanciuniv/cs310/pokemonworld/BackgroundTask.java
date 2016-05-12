@@ -1,6 +1,7 @@
 package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -22,9 +23,9 @@ import java.net.URLEncoder;
 public class BackgroundTask extends AsyncTask<String, Void, String> {
 
     Context context;
-    //AlertDialog alertDialog;
     public AsyncResponse delegate = null;
     String type_main = "";
+    ProgressDialog progressDialog;
 
 
     BackgroundTask(Context context) {
@@ -34,8 +35,11 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        // alertDialog = new AlertDialog.Builder(context).create();
-        //alertDialog.setTitle("Registration Status");
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage("Gathering Information...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
     }
 
     @Override
@@ -91,6 +95,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         } else if(type_main.equals("ownPokePocket")){
             delegate.processFinish("ownPokePocket", result);
         }
+        progressDialog.dismiss();
     }
 
     private String login(String... params) {

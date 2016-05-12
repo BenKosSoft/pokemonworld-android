@@ -101,7 +101,7 @@
     <TextView
         android:layout_width="@dimen/battle_pname_width"
         android:layout_height="@dimen/battle_pname_height"
-        android:text="POKEMON NAME"
+        android:text="@string/battle_temp_name"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_pname_txtsize"
         android:id="@+id/battle_pname"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="@dimen/battle_lvl_width"
         android:layout_height="@dimen/battle_lvl_height"
-        android:text="Lv. XXX"
+        android:text="@string/battle_temp_level"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_pname_txtsize"
         android:id="@+id/battle_pHP"
@@ -126,7 +126,7 @@
     <TextView
         android:layout_width="@dimen/battle_hp_width"
         android:layout_height="@dimen/battle_hp_height"
-        android:text="HP 100/100"
+        android:text="@string/battle_temp_hp"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_hp_txtsize"
         android:id="@+id/battle_plvl"
@@ -138,7 +138,7 @@
     <TextView
         android:layout_width="@dimen/battle_pname_width"
         android:layout_height="@dimen/battle_pname_height"
-        android:text="POKEMON NAME"
+        android:text="@string/battle_temp_name"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_pname_txtsize"
         android:id="@+id/battle_e_pname"
@@ -150,7 +150,7 @@
     <TextView
         android:layout_width="@dimen/battle_lvl_width"
         android:layout_height="@dimen/battle_lvl_height"
-        android:text="Lv. XXX"
+        android:text="@string/battle_temp_level"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_pname_txtsize"
         android:id="@+id/battle_e_pHP"
@@ -163,7 +163,7 @@
     <TextView
         android:layout_width="@dimen/battle_hp_width"
         android:layout_height="@dimen/battle_hp_height"
-        android:text="HP 100/100"
+        android:text="@string/battle_temp_level"
         android:textColor="@android:color/black"
         android:textSize="@dimen/battle_hp_txtsize"
         android:id="@+id/battle_e_plvl"
