@@ -124,6 +124,7 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 StringBuilder cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
                 user_card.setImageResource(getResources().getIdentifier(cardName.toString(),"drawable", getPackageName()));
+                current = 1;
                 break;
             case 1:
                 battle_pname.setText(pokemons[0].getName());
@@ -133,6 +134,7 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 cardName = new StringBuilder();
                 cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
                 user_card.setImageResource(getResources().getIdentifier(cardName.toString(),"drawable", getPackageName()));
+                current = 0;
                 break;
             default:
                 break;
