@@ -83,36 +83,53 @@ public class BattleActivity extends Activity implements AsyncResponse{
 
     @Override
     public void processFinish(String processNumber, String output) {
-        JSONObject jsonObject;
-        try {
-            jsonObject = new JSONObject(output);
-            JSONArray jsonArray = jsonObject.getJSONArray("server_response");
-            int count = 0;
-            String pid, pXp, pName, exists, move, moveType, hp;
-            while (count < jsonArray.length()){
-                JSONObject object = jsonArray.getJSONObject(count);
-                pid = object.getString("pid");
-                pXp = object.getString("exp");
-                pName = object.getString("pokemonName");
-                exists = object.getString("exist");
-                move = object.getString("move");
-                moveType = object.getString("move_type");
-                hp = object.getString("hp");
+        if(processNumber.equals("ownPokePocket")) {
+            JSONObject jsonObject;
+            try {
+                jsonObject = new JSONObject(output);
+                JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+                int count = 0;
+                String pid, pXp, pName, exists, move, moveType, hp;
+                while (count < jsonArray.length()) {
+                    JSONObject object = jsonArray.getJSONObject(count);
+                    pid = object.getString("pid");
+                    pXp = object.getString("exp");
+                    pName = object.getString("pokemonName");
+                    exists = object.getString("exist");
+                    move = object.getString("move");
+                    moveType = object.getString("move_type");
+                    hp = object.getString("hp");
 
-                pokemons[count] = new Pokemon(Integer.parseInt(pid), pName, Integer.parseInt(pXp), exists, move, moveType);
-                pokemons[count].setHp(Integer.parseInt(hp));
-                count++;
+                    pokemons[count] = new Pokemon(Integer.parseInt(pid), pName, Integer.parseInt(pXp), exists, move, moveType);
+                    pokemons[count].setHp(Integer.parseInt(hp));
+                    count++;
+                }
+
+                battle_pname.setText(pokemons[0].getName());
+                battle_plvl.setText(pokemons[0].getLevel().toString() + " Level");
+                battle_pHP.setText(pokemons[0].getHp().toString() + " HP");
+
+                StringBuilder cardName = new StringBuilder();
+                cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
+                user_card.setImageResource(getResources().getIdentifier(cardName.toString(), "drawable", getPackageName()));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+        }else if(processNumber.equals("catchPokemon")){
+            if(output.equals("true")){
+                fight_msg.setText("Congratulations! " + battle_pname.getText().toString().toUpperCase()+" have caught!");
+                enemy_card.setImageResource(R.drawable.card_backface);
+                battle_e_plvl.setText("");
+                battle_e_pname.setText("");
+                battle_e_pHP.setText("");
+                try {
+                    wait(1000);
+                    fight_msg.setText("Press RUN to search pokemon");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-            battle_pname.setText(pokemons[0].getName());
-            battle_plvl.setText(pokemons[0].getLevel().toString() + " Level");
-            battle_pHP.setText(pokemons[0].getHp().toString() + " HP");
-
-            StringBuilder cardName = new StringBuilder();
-            cardName.append("card_").append(battle_pname.getText().toString().toLowerCase().trim());
-            user_card.setImageResource(getResources().getIdentifier(cardName.toString(),"drawable", getPackageName()));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            }
         }
     }
 
@@ -168,12 +185,43 @@ public class BattleActivity extends Activity implements AsyncResponse{
     }
 
     public void onCatch (View v){
-
+        if(battle_e_pname.getText().toString().trim().equals("")){
+            return;
+        }
+        int elvl = Integer.parseInt(battle_e_plvl.getText().toString());
+        int ehp = Integer.parseInt(battle_e_pHP.getText().toString());
+        double rand = Math.random();
+        int chance = 3 * (ehp/50) * (elvl/60);
+        fight_msg.setText("Pokeball is thrown");
+        try {
+            wait(500);
+            fight_msg.setText("It shakes...");
+            wait(500);
+            fight_msg.setText("It shakes again...");
+            wait(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (rand < chance){
+            fight_msg.setText("Pokemon is broke free.");
+            try {
+                wait(1000);
+                fight_msg.setText(new StringBuilder("A wild ").append(battle_e_pname.getText().toString().toUpperCase()+" ").append("appeared. ")
+                        .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            backgroundTask = new BackgroundTask(this);
+            backgroundTask.delegate = this;
+            backgroundTask.execute("catchPokemon", userName, battle_e_pname.getText().toString(), Integer.toString(elvl*100));
+        }
     }
 
     public void onFight (View v){
         //coming soon
-        Toast.makeText(this,"COMING SOON... :)",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"COMING SOON... ",Toast.LENGTH_SHORT).show();
     }
 
     protected int[] randomEnemy (int minLvl, int maxLvl){
