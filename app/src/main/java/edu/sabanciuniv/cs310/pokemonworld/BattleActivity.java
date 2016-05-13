@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -132,6 +133,9 @@ public class BattleActivity extends Activity implements AsyncResponse{
         StringBuilder cardName = new StringBuilder();
         cardName.append("card_").append(pokemonName.toLowerCase().trim());
         enemy_card.setImageResource(getResources().getIdentifier(cardName.toString(),"drawable", getPackageName()));
+
+        fight_msg.setText(new StringBuilder("A wild ").append(pokemonName.toUpperCase()+" ").append("appeared. ")
+                .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
     }
 
     public void onPokemon (View v){
@@ -159,6 +163,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
             default:
                 break;
         }
+        fight_msg.setText(new StringBuilder("A wild ").append(battle_e_pname.getText().toString().toUpperCase()+" ").append("appeared. ")
+                .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
     }
 
     public void onCatch (View v){
@@ -167,6 +173,7 @@ public class BattleActivity extends Activity implements AsyncResponse{
 
     public void onFight (View v){
         //coming soon
+        Toast.makeText(this,"COMING SOON... :)",Toast.LENGTH_SHORT).show();
     }
 
     protected int[] randomEnemy (int minLvl, int maxLvl){
