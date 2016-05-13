@@ -117,17 +117,17 @@ public class BattleActivity extends Activity implements AsyncResponse{
             }
         }else if(processNumber.equals("catchPokemon")){
             if(output.equals("true")){
-                fight_msg.setText("Congratulations! " + battle_pname.getText().toString().toUpperCase()+" have caught!");
+                fight_msg.setText("Congratulations! " + battle_e_pname.getText().toString().toUpperCase()+" have caught!");
                 enemy_card.setImageResource(R.drawable.card_backface);
                 battle_e_plvl.setText("");
                 battle_e_pname.setText("");
                 battle_e_pHP.setText("");
-                try {
-                    wait(1000);
-                    fight_msg.setText("Press RUN to search pokemon");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    wait(1000);
+//                    fight_msg.setText("Press RUN to search pokemon");
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
 
             }
         }
@@ -188,29 +188,31 @@ public class BattleActivity extends Activity implements AsyncResponse{
         if(battle_e_pname.getText().toString().trim().equals("")){
             return;
         }
-        int elvl = Integer.parseInt(battle_e_plvl.getText().toString());
-        int ehp = Integer.parseInt(battle_e_pHP.getText().toString());
+        String lvlstr = battle_e_plvl.getText().toString();
+        String hpstr = battle_e_pHP.getText().toString();
+        int elvl = Integer.parseInt(lvlstr.substring(0,lvlstr.length()-6));
+        int ehp = Integer.parseInt(hpstr.substring(0,hpstr.length()-3));
         double rand = Math.random();
-        int chance = 3 * (ehp/50) * (elvl/60);
+        double chance = 3 * (ehp/50.0) * (elvl/60.0);
         fight_msg.setText("Pokeball is thrown");
-        try {
-            wait(500);
-            fight_msg.setText("It shakes...");
-            wait(500);
-            fight_msg.setText("It shakes again...");
-            wait(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            wait(500);
+//            fight_msg.setText("It shakes...");
+//            wait(500);
+//            fight_msg.setText("It shakes again...");
+//            wait(500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         if (rand < chance){
             fight_msg.setText("Pokemon is broke free.");
-            try {
-                wait(1000);
-                fight_msg.setText(new StringBuilder("A wild ").append(battle_e_pname.getText().toString().toUpperCase()+" ").append("appeared. ")
-                        .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                wait(1000);
+//                fight_msg.setText(new StringBuilder("A wild ").append(battle_e_pname.getText().toString().toUpperCase()+" ").append("appeared. ")
+//                        .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
         else{
             backgroundTask = new BackgroundTask(this);
