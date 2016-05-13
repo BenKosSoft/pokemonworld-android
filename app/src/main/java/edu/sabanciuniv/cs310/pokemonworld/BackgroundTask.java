@@ -91,6 +91,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         } else if(type_main.equals("changeFirstPokemon")) {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         } else if(type_main.equals("changePokemonType")){
+            delegate.processFinish("changePokemonType",result);
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         } else if(type_main.equals("findRangeRegion")){
             delegate.processFinish("findRangeRegion", result);

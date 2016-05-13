@@ -122,13 +122,6 @@ public class BattleActivity extends Activity implements AsyncResponse{
                 battle_e_plvl.setText("");
                 battle_e_pname.setText("");
                 battle_e_pHP.setText("");
-//                try {
-//                    wait(1000);
-//                    fight_msg.setText("Press RUN to search pokemon");
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-
             }
         }
     }
@@ -195,24 +188,8 @@ public class BattleActivity extends Activity implements AsyncResponse{
         double rand = Math.random();
         double chance = 3 * (ehp/50.0) * (elvl/60.0);
         fight_msg.setText("Pokeball is thrown");
-//        try {
-//            wait(500);
-//            fight_msg.setText("It shakes...");
-//            wait(500);
-//            fight_msg.setText("It shakes again...");
-//            wait(500);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         if (rand < chance){
             fight_msg.setText("Pokemon is broke free.");
-//            try {
-//                wait(1000);
-//                fight_msg.setText(new StringBuilder("A wild ").append(battle_e_pname.getText().toString().toUpperCase()+" ").append("appeared. ")
-//                        .append("What will ").append(battle_pname.getText().toString().toUpperCase()+" ").append("do?"));
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
         else{
             backgroundTask = new BackgroundTask(this);

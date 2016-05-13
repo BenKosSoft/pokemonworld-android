@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ProfileActivity extends Activity {
+public class ProfileActivity extends Activity implements AsyncResponse{
 
     String usernameStr;
     String ageStr;
@@ -186,9 +186,8 @@ public class ProfileActivity extends Activity {
 
                     String type = "changePokemonType";
                     BackgroundTask backgroundTask = new BackgroundTask(ProfileActivity.this);
+                    backgroundTask.delegate = ProfileActivity.this;
                     backgroundTask.execute(type, pid.toString(), moveType, moveTypeAtt);
-
-                    finish();
                 }else{
                     Toast.makeText(ProfileActivity.this, "Please select one of pokemon (radio button)", Toast.LENGTH_SHORT).show();
                 }
@@ -260,4 +259,8 @@ public class ProfileActivity extends Activity {
         return null;
     }
 
+    @Override
+    public void processFinish(String processNumber, String output) {
+        finish();
+    }
 }
