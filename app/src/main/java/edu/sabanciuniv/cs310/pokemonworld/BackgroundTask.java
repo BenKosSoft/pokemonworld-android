@@ -64,6 +64,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             return findRangeRegion(params);
         } else if(type.equals("ownPokePocket")) {
             return ownPokePocket(params);
+        } else if(type.equals("catchPokemon")){
+            return catchPokemon(params);
         } else {
             return null;
         }
@@ -452,6 +454,50 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             inputStream.close();
             connection.disconnect();
             return stringBuilder.toString().trim();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+
+    private String catchPokemon(String[] params) {
+
+        String url2 = "http://mertkoo.com/PokemonWorld/catchpokemon.php";
+        try {
+            String username = params[1];
+            String pokemon = params[2];
+            String exp = params[3];
+
+            URL url = new URL(url2);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            OutputStream outputStream = connection.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+            String post_data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8") + "&" +
+                    URLEncoder.encode("pokemon", "UTF-8") + "=" + URLEncoder.encode(pokemon, "UTF-8") + "&" +
+                    URLEncoder.encode("exp", "UTF-8") + "=" + URLEncoder.encode(exp, "UTF-8");
+            bufferedWriter.write(post_data);
+            bufferedWriter.flush();
+            bufferedWriter.close();
+            outputStream.close();
+
+            InputStream inputStream = connection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+            String result = "";
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                result += line;
+            }
+            bufferedReader.close();
+            inputStream.close();
+            connection.disconnect();
+            return result;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
