@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="caughtPokemon">Caught Pokemon</string>
+    <string name="secondStarter">Select Second Starter Pokemon</string>
+    <string name="firstStarter">Select First Starter Pokemon</string>
+    <string name="tempPid">PID</string>
+    <string name="tempString">hp</string>
+    <string name="titleHP">HP</string>
+    <string name="titleAttack">ATTACK</string>
+    <string name="titleDefence">DEFENCE</string>
+    <string name="titleType">TYPE</string>
+    <string name="titleSpecialAttack">SPECIAL ATTACK</string>
+    <string name="titleSpecialDefence">SPECIAL DEFENCE</string>
+    <string name="titleSpeed">SPEED</string>
+    <string name="battle_temp_name">POKEMON NAME</string>
+    <string name="battle_temp_level">Lv. XXX</string>
+    <string name="battle_temp_hp">HP 100/100</string>
 </resources>
