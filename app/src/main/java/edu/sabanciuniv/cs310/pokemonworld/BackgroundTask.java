@@ -96,6 +96,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             delegate.processFinish("findRangeRegion", result);
         } else if(type_main.equals("ownPokePocket")){
             delegate.processFinish("ownPokePocket", result);
+        } else if(type_main.equals("catchPokemon")){
+            delegate.processFinish("catchPokemon", result);
         }
         progressDialog.dismiss();
     }
