@@ -1,8 +1,10 @@
 package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -49,11 +51,29 @@ public class RegisterActivity extends Activity {
             age_str = age.getText().toString();
             favPoke_str = favPoke.getText().toString();
 
-            String type = "register";
+            if(username_str.equals("") || password_str.equals("") || age_str.equals("") || favPoke_str.equals("")){
 
-            BackgroundTask backgroundTask = new BackgroundTask(this);
-            backgroundTask.execute(type, username_str, password_str, age_str, favPoke_str, pokemonFirst, pokemonSecond);
-            finish();
+                new AlertDialog.Builder(this)
+                        .setTitle("You cannot register with missing information!")
+                        .setMessage("Please fill all information...")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+            }else{
+
+                String type = "register";
+
+                BackgroundTask backgroundTask = new BackgroundTask(this);
+                backgroundTask.execute(type, username_str, password_str, age_str, favPoke_str, pokemonFirst, pokemonSecond);
+                finish();
+            }
+
+
 
         }
     }
