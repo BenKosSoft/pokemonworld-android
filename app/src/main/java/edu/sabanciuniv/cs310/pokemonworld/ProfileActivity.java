@@ -1,7 +1,6 @@
 package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

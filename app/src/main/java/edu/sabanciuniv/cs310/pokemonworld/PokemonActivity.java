@@ -2,17 +2,9 @@ package edu.sabanciuniv.cs310.pokemonworld;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import java.io.FileNotFoundException;
 
 public class PokemonActivity extends Activity {
 
