@@ -7,7 +7,7 @@ Android version of the turn-based Pokémon card game.
 * @mertkosan
 * @mbenlioglu
 
-### About
+## About
 
 In this game, single player and multiplayer options are available, even though multiplayer functionalities has not fully supported
 yet.
@@ -17,11 +17,15 @@ yet.
 * PHP (back-end)
 * [MySQL](https://www.mysql.com/)
 
-### Getting Started
+## Getting Started
 
 * Internet connection is needed.
 * Login/Register is needed.
 * After login, player can play the game.
+
+Below picture shows login page of the game
+
+![login_page](/docs/login_page.png)
 
 Game starts with selection of 2 Pokémon with some available options. Afterwards, there are 4 sections player can navigate:
 
