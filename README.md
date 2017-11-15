@@ -2,10 +2,9 @@
 
 Android version of the turn-based Pokémon card game. 
 
-**Designed and Implemented By:**
-
-* @mertkosan
-* @mbenlioglu
+**Designed & Implemented by:**
+ * [Mert Kosan](https://github.com/mertkosan)
+ * [M.Mucahid Benlioglu](https://github.com/mbenlioglu)
 
 ## About
 
